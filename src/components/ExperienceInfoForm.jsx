@@ -1,7 +1,8 @@
 import Button from "./shared/Button";
 import "../styles/asideStyle.css";
 import InputBox from "./shared/InputBox";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+
 export default function ExperienceInfoForm({
   experienceArray,
   setExperienceArray,
@@ -40,6 +41,17 @@ export default function ExperienceInfoForm({
       ),
     });
   };
+
+  const handleAddWorkExp = () => {
+    setExperienceArray([...experienceArray, experienceInfo]);
+    setExperienceInfo({
+      company: "",
+      position: "",
+      id: crypto.randomUUID(),
+      responsibilities: [""],
+    });
+  };
+
   return (
     <article className="ExperienceInfoForm">
       <InputBox
@@ -91,9 +103,10 @@ export default function ExperienceInfoForm({
       ))}
       <div className="buttonContainer">
         <Button
-          text="Add Responsibility +"
+          text="Responsibility +"
           onCLick={addMoreResponsibilityHandler}
         />
+        <Button text="Add Experience " onCLick={handleAddWorkExp} />
       </div>
     </article>
   );
