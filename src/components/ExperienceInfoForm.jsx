@@ -98,15 +98,40 @@ export default function ExperienceInfoForm({
             containerName="responsibilitiesInfoBox"
             onChange={(e) => responsibilitiesOnChange(e, index)}
           ></InputBox>
-          <Button text="delete" onCLick={() => removeResponsibilty(index)} />
+          <Button
+            text="delete"
+            className="delete-button"
+            onCLick={() => removeResponsibilty(index)}
+          />
         </div>
       ))}
       <div className="buttonContainer">
+        <button
+          class="addResponsibilitybutton"
+          onClick={addMoreResponsibilityHandler}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            viewBox="0 0 20 20"
+            height="20"
+            fill="none"
+            class="svg-icon"
+          >
+            <g stroke-width="1.5" stroke-linecap="round" stroke="#de8a2a">
+              <circle r="7.5" cy="10" cx="10"></circle>
+              <path d="m9.99998 7.5v5"></path>
+              <path d="m7.5 9.99998h5"></path>
+            </g>
+          </svg>
+          <span class="lable">Add</span>
+        </button>
         <Button
-          text="Responsibility +"
-          onCLick={addMoreResponsibilityHandler}
+          type={"submit"}
+          text="Add Experience "
+          onCLick={handleAddWorkExp}
+          className="addButton btnExp"
         />
-        <Button text="Add Experience " onCLick={handleAddWorkExp} />
       </div>
     </article>
   );

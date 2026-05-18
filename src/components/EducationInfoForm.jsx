@@ -7,8 +7,8 @@ export default function EducationInfoForm({
   const [eduInfo, setEducationInfo] = useState({
     school: "",
     major: "",
-    from: new Date().toISOString().split("T")[0],
-    to: new Date().toISOString().split("T")[0],
+    from: "",
+    to: "",
     key: crypto.randomUUID(),
   });
 
@@ -16,23 +16,25 @@ export default function EducationInfoForm({
     setEducationInfo({ ...eduInfo, [field]: newValue });
   };
 
-  const handleMoreSchool = () => {
+  const handleMoreSchool = (e) => {
+    e.preventDefault();
     setEducationArray([...educationArray, eduInfo]);
     setEducationInfo({
       school: "",
       major: "",
-      from: new Date().toISOString().split("T")[0],
-      to: new Date().toISOString().split("T")[0],
+      from: "",
+      to: "",
       key: crypto.randomUUID(),
     });
   };
 
   return (
     <>
-      <article className="educationItem" key={eduInfo.key}>
+      <form className="educationItem" key={eduInfo.key}>
         <div className="inputBox">
-          <label htmlFor={`${eduInfo.key}-school`}>School: </label>
           <input
+            minLength={2}
+            required={true}
             value={eduInfo.school}
             id={`${eduInfo.key}-school`}
             type="text"
@@ -41,39 +43,51 @@ export default function EducationInfoForm({
               handleChange(eduInfo.key, "school", e.target.value)
             }
           />
+          <label htmlFor={`${eduInfo.key}-school`}>School: </label>
         </div>
         <div className="inputBox">
-          <label htmlFor={`${eduInfo.key}-major`}>Major: </label>
           <input
+            minLength={2}
+            required={true}
             value={eduInfo.major}
             id={`${eduInfo.key}-major`}
             type="text"
             className="inputMajor"
             onChange={(e) => handleChange(eduInfo.key, "major", e.target.value)}
           />
+          <label htmlFor={`${eduInfo.key}-major`}>Major: </label>
         </div>
         <div className="graduationInfo inputBox">
-          <label htmlFor={`${eduInfo.key}-from`}>From: </label>
           <input
             value={eduInfo.from}
             id={`${eduInfo.key}-from`}
             type="date"
             className="inputFromDate"
-            onChange={(e) => handleChange(eduInfo.key, "from", e.target.value)}
+            onChange={(e) => {
+              handleChange(eduInfo.key, "from", e.target.value);
+            }}
           />
+          <label htmlFor={`${eduInfo.key}-from`}>From: </label>
         </div>
         <div className="inputBox">
-          <label htmlFor={`${eduInfo.key}-to`}>To: </label>
           <input
             value={eduInfo.to}
             id={`${eduInfo.key}-to`}
             type="date"
             className="inputToDate"
-            onChange={(e) => handleChange(eduInfo.key, "to", e.target.value)}
+            onChange={(e) => {
+              handleChange(eduInfo.key, "to", e.target.value);
+            }}
           />
+          <label htmlFor={`${eduInfo.key}-to`}>To: </label>
         </div>
-        <Button text="Add " type="button" onCLick={handleMoreSchool} />
-      </article>
+        <Button
+          text="Add"
+          className="addButton"
+          type="submit"
+          onCLick={handleMoreSchool}
+        />
+      </form>
     </>
   );
 }

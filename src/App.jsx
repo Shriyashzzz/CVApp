@@ -4,7 +4,6 @@ import Button from "./components/shared/Button";
 import ExperienceInfoForm from "./components/ExperienceInfoForm";
 import EducationInfoForm from "./components/EducationInfoForm";
 import CvRender from "./components/CvRender";
-import "./styles/App.css";
 
 export default function App() {
   const [generalInfo, setGeneralInfo] = useState({
@@ -42,7 +41,7 @@ export default function App() {
           />
         </section>
 
-        <section className="addBox">
+        <section className="addBox workExpBox">
           <h2>Work Experience</h2>
           <ExperienceInfoForm
             experienceArray={experienceArray}
