@@ -45,7 +45,7 @@ export default function CvRender({
         {experienceArray.map((element) => {
           return (
             <Fragment key={element.key + "cvElements"}>
-              <div>
+              <div class="companyInfo">
                 <h3 className="userInfo">{element.company}</h3>
                 <p>
                   <i>{element.position}</i>

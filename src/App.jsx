@@ -4,7 +4,7 @@ import Button from "./components/shared/Button";
 import ExperienceInfoForm from "./components/ExperienceInfoForm";
 import EducationInfoForm from "./components/EducationInfoForm";
 import CvRender from "./components/CvRender";
-
+import "./app.css";
 export default function App() {
   const [generalInfo, setGeneralInfo] = useState({
     name: "Shriyash",
