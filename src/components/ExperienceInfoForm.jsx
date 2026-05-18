@@ -16,7 +16,7 @@ export default function ExperienceInfoForm({
     ],
   });
 
-  const responsibilitiesOnChange = () => {
+  const responsibilitiesOnChange = (e, indexToReplce) => {
     setExperienceInfo({
       ...experienceInfo,
       responsibilities: experienceInfo.responsibilities.map((item, index) => {
@@ -25,9 +25,7 @@ export default function ExperienceInfoForm({
     });
   };
 
-  const addMoreResponsibilityHandler = (index) => {
-    console.log(indexToReplce);
-
+  const addMoreResponsibilityHandler = () => {
     setExperienceInfo({
       ...experienceInfo,
       responsibilities: [...experienceInfo.responsibilities, ""],
@@ -88,7 +86,7 @@ export default function ExperienceInfoForm({
             containerName="responsibilitiesInfoBox"
             onChange={(e) => responsibilitiesOnChange(e, index)}
           ></InputBox>
-          <Button text="delete" onClick={() => removeResponsibilty(index)} />
+          <Button text="delete" onCLick={() => removeResponsibilty(index)} />
         </div>
       ))}
       <Button
