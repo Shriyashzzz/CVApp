@@ -1,13 +1,16 @@
-/* Layout */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 aside {
   display: grid;
-  grid-template-rows: repeat(3, auto);
+  grid-template-rows: repeat(3, minmax(200px, 1fr));
   background-color: rgb(223, 223, 223);
   place-items: center;
   align-items: center;
-  width: 100%;
-  height: fit-content;
-  padding-left: 1rem;
+  max-width: 100%;
+  padding: 1rem;
   box-sizing: border-box;
   font-size: 20px;
 }
@@ -30,12 +33,10 @@ aside {
   width: 100%;
 }
 
-/* Typography */
 h2 {
   border-bottom: 2px solid black;
 }
 
-/* Form Inputs */
 .input-group,
 .inputBox {
   position: relative;
@@ -43,7 +44,7 @@ h2 {
 
 .input,
 input {
-  width: 80%;
+  width: 100%;
   padding: 1rem;
   font-size: 1rem;
   color: #000000;
@@ -65,7 +66,6 @@ input:valid {
   border: 1.5px solid green;
 }
 
-/* Labels */
 .user-label,
 label {
   position: absolute;
@@ -335,5 +335,111 @@ input:valid ~ label {
   .addResponsibilitybutton {
     align-self: center;
     margin-right: 1rem;
+  }
+}
+
+@media screen and (max-width: 1100px) and (min-width: 800px) {
+  aside {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(200px, 1fr));
+    grid-template-rows: 1fr;
+    padding: 2rem;
+    place-items: start;
+    align-items: start;
+    gap: 2rem;
+  }
+  .workExpBox,
+  .addBox,
+  .educationItem,
+  .ExperienceInfoForm,
+  .generalInfoBox {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+  }
+  .addBox {
+    grid-column: span 1;
+  }
+
+  .generalInfoBox {
+    grid-column: span 1;
+  }
+
+  .workExpBox {
+    grid-column: span 1;
+    margin-bottom: 0;
+  }
+  .addButton {
+    margin-top: auto;
+  }
+  .buttonContainer {
+    margin-top: auto;
+  }
+}
+@media screen and (max-width: 800px) {
+  aside {
+    display: grid;
+    grid-template-rows: repeat(3, auto);
+    padding: 2rem;
+  }
+
+  .workExpBox,
+  .addBox,
+  .educationItem,
+  .ExperienceInfoForm,
+  .generalInfoBox {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+  }
+
+  .addBox {
+    display: flex;
+    align-self: center;
+    justify-self: center;
+  }
+
+  .generalInfoBox {
+    grid-column: span 1;
+  }
+
+  .workExpBox {
+    grid-column: span 1;
+    margin-bottom: 0;
+  }
+
+  .addButton {
+    margin-top: auto;
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .buttonContainer {
+    margin-top: auto;
+    width: 100%;
+  }
+
+  .input-group,
+  .inputBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  .input,
+  input {
+    box-sizing: border-box;
+    width: 100% !important;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .user-label,
+  label {
+    top: -4px;
   }
 }

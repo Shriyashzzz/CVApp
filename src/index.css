@@ -43,3 +43,10 @@
 .footer .footer-link:hover {
   transform: translateY(-5px) translateX(-2px);
 }
+
+@media screen and (max-width: 1100px) {
+  #root {
+    display: flex;
+    flex-direction: column;
+  }
+}

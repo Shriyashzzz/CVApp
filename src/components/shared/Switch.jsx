@@ -109,7 +109,7 @@ const StyledWrapper = styled.div`
       props.$checked
         ? "rotateX(10deg) rotateY(0deg)"
         : "rotateX(10deg) rotateY(-45deg)"};
-    color: ${(props) => (props.$checked ? "#487bdb" : "rgb(206, 206, 206)")};
+    color: ${(props) => (props.$checked ? "#ff0000" : "rgb(206, 206, 206)")};
   }
 
   .right::before {
