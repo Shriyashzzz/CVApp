@@ -6,17 +6,9 @@ import { useState, useEffect } from "react";
 export default function ExperienceInfoForm({
   experienceArray,
   setExperienceArray,
+  experienceInfo,
+  setExperienceInfo,
 }) {
-  const [experienceInfo, setExperienceInfo] = useState({
-    company: "Apple",
-    position: "SWE",
-    id: crypto.randomUUID(),
-    responsibilities: [
-      "Test the new feature",
-      "Delete the production by accident :p",
-    ],
-  });
-
   const responsibilitiesOnChange = (e, indexToReplce) => {
     setExperienceInfo({
       ...experienceInfo,
@@ -99,7 +91,7 @@ export default function ExperienceInfoForm({
             onChange={(e) => responsibilitiesOnChange(e, index)}
           ></InputBox>
           <Button
-            text="delete"
+            text="del"
             className="delete-button"
             onCLick={() => removeResponsibilty(index)}
           />

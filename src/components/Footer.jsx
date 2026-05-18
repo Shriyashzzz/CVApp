@@ -5,7 +5,7 @@ export default function Footer() {
     <footer className="footer">
       <a
         className="footer-link"
-        href="https://github.com/Shriyashzzz/battleship"
+        href="https://github.com/Shriyashzzz/CVApp"
         target="_blank"
       >
         <img src={githubIcon} alt="github icon" className="icons github" />

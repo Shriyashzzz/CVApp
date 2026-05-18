@@ -149,15 +149,14 @@ input:valid ~ label {
   margin-right: 1rem;
   border: 0.5px solid rgba(0, 0, 0, 0.1);
   padding-bottom: 8px;
-  width: 60px;
-  height: 65px;
+  width: 4rem;
+  height: 4rem;
   border-radius: 15px 15px 12px 12px;
   cursor: pointer;
   position: relative;
   will-change: transform;
   transition: all 0.1s ease-in-out 0s;
   user-select: none;
-  /* Add gradient shading to each side */
   background-image:
     linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0)),
     linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));

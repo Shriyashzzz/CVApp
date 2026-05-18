@@ -5,16 +5,24 @@ import ExperienceInfoForm from "./components/ExperienceInfoForm";
 import EducationInfoForm from "./components/EducationInfoForm";
 import CvRender from "./components/CvRender";
 import "./app.css";
+
 export default function App() {
   const [generalInfo, setGeneralInfo] = useState({
-    name: "Shriyash",
-    email: "lorempossem@gmail.com",
-    phone: "123456789",
+    name: "",
+    email: "",
+    phone: "",
   });
 
   const [educationArray, setEducationArray] = useState([]);
-
   const [experienceArray, setExperienceArray] = useState([]);
+
+  const [experienceInfo, setExperienceInfo] = useState({
+    company: "",
+    position: "",
+    id: crypto.randomUUID(),
+    responsibilities: ["", ""],
+  });
+
   const [eduInfo, setEducationInfo] = useState({
     school: "",
     major: "",
@@ -22,6 +30,7 @@ export default function App() {
     to: new Date().toISOString().split("T")[0],
     key: crypto.randomUUID(),
   });
+
   const editEducationItem = (field, newValue) => {
     setEducationInfo((prev) => ({ ...prev, [field]: newValue }));
   };
@@ -51,19 +60,20 @@ export default function App() {
           <ExperienceInfoForm
             experienceArray={experienceArray}
             setExperienceArray={setExperienceArray}
+            experienceInfo={experienceInfo}
+            setExperienceInfo={setExperienceInfo}
           />
         </section>
       </aside>
       <main>
         <CvRender
           generalInfo={generalInfo}
-          setGeneralInfo={setGeneralInfo}
           educationArray={educationArray}
           setEducationArray={setEducationArray}
+          setEducationInfo={setEducationInfo}
           experienceArray={experienceArray}
           setExperienceArray={setExperienceArray}
-          editEducationItem={editEducationItem}
-          setEducationInfo={setEducationInfo}
+          setExperienceInfo={setExperienceInfo}
         />
       </main>
     </>
