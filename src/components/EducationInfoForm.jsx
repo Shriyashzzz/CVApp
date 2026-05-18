@@ -10,7 +10,7 @@ export default function EducationInfoForm({ data, onChange }) {
   return (
     <>
       {data.map((eduInfo) => (
-        <div className="educationInfoBox" key={eduInfo.key}>
+        <article className="educationItem" key={eduInfo.key}>
           <label htmlFor={`${eduInfo.key}-school`}>School: </label>
           <input
             value={eduInfo.school}
@@ -49,7 +49,7 @@ export default function EducationInfoForm({ data, onChange }) {
               onChange={(e) => handleChange(eduInfo.key, "to", e.target.value)}
             />
           </div>
-        </div>
+        </article>
       ))}
     </>
   );

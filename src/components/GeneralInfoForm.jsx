@@ -2,7 +2,7 @@ import InputBox from "./shared/InputBox.jsx";
 
 export default function GeneralInfoForm({ data, onChange }) {
   return (
-    <div className="generalInfoBox">
+    <section className="generalInfoBox">
       <InputBox
         labelName="name: "
         id="inputName"
@@ -31,6 +31,6 @@ export default function GeneralInfoForm({ data, onChange }) {
         onChange={onChange}
         name="phone"
       />
-    </div>
+    </section>
   );
 }

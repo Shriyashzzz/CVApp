@@ -12,10 +12,14 @@ export default function InputBox({
   data,
 }) {
   const handleOnChange = (e) => {
-    onChange({
-      ...data,
-      [e.target.name]: e.target.value,
-    });
+    if (data) {
+      onChange({
+        ...data,
+        [e.target.name]: e.target.value,
+      });
+    } else {
+      onChange(e);
+    }
   };
 
   return (

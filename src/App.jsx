@@ -3,6 +3,7 @@ import GeneralInfoForm from "./components/GeneralInfoForm";
 import Button from "./components/shared/Button";
 import EducationInfoForm from "./components/EducationInfoForm";
 import "./styles/App.css";
+import ExperienceInfoForm from "./components/ExperienceInfoForm";
 export default function App() {
   const [generalInfo, setGeneralInfo] = useState({
     name: "Shriyash",
@@ -30,13 +31,26 @@ export default function App() {
     setEducationInfo([...educationInfo, newObj]);
   };
 
+  const [experienceArray, setExperienceArray] = useState([]);
+
   return (
     <>
       <main></main>
       <aside>
+        <p>Contact</p>
         <GeneralInfoForm data={generalInfo} onChange={setGeneralInfo} />
-        <EducationInfoForm data={educationInfo} onChange={setEducationInfo} />
-        <Button text="Add More" type="button" onCLick={handleAddMore} />
+        <p> Education</p>
+        <section className="educationInfoBox">
+          <EducationInfoForm data={educationInfo} onChange={setEducationInfo} />
+          <Button text="Add More" type="button" onCLick={handleAddMore} />
+        </section>
+        <p>Work Experience</p>
+        <section>
+          <ExperienceInfoForm
+            experienceArray={experienceArray}
+            setExperienceArray={setExperienceArray}
+          />
+        </section>
       </aside>
     </>
   );
