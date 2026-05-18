@@ -89,10 +89,12 @@ export default function ExperienceInfoForm({
           <Button text="delete" onCLick={() => removeResponsibilty(index)} />
         </div>
       ))}
-      <Button
-        text="Add Responsibility +"
-        onCLick={addMoreResponsibilityHandler}
-      />
+      <div className="buttonContainer">
+        <Button
+          text="Add Responsibility +"
+          onCLick={addMoreResponsibilityHandler}
+        />
+      </div>
     </article>
   );
 }

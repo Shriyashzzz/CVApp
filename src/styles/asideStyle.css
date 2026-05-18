@@ -1,3 +1,8 @@
+aside {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
 .responsibilityBox {
   max-width: 100%;
   display: flex;

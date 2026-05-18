@@ -32,6 +32,18 @@ export default function App() {
   };
 
   const [experienceArray, setExperienceArray] = useState([]);
+  const handleAddMoreWorkExp = () => {
+    const newWorkExp = {
+      company: "Apple",
+      position: "SWE",
+      id: crypto.randomUUID(),
+      responsibilities: [
+        "Test the new feature",
+        "Delete the production by accident :p",
+      ],
+    };
+    setExperienceArray(...experienceArray, newWorkExp);
+  };
 
   return (
     <>
@@ -49,6 +61,12 @@ export default function App() {
           <ExperienceInfoForm
             experienceArray={experienceArray}
             setExperienceArray={setExperienceArray}
+          />
+          <Button
+            text="Add Experience + "
+            onCLick={() => {
+              handleAddMoreWorkExp;
+            }}
           />
         </section>
       </aside>
