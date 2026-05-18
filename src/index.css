@@ -1,0 +1,6 @@
+#root {
+  height: 100dvh;
+  max-width: 100dvw;
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+}

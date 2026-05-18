@@ -23,19 +23,21 @@ export default function InputBox({
   };
 
   return (
-    <div className={containerName}>
-      <label htmlFor={id}>{labelName}</label>
+    <div className={"input-group"}>
       <input
         name={name}
         value={value || ""}
         id={id}
         type={boxType}
-        className={boxType}
+        className="input"
         minLength={minimum > 0 ? minimum : undefined}
         maxLength={maximum > 0 ? maximum : undefined}
         required={required}
         onChange={handleOnChange}
       />
+      <label htmlFor={id} className="user-label">
+        {labelName}
+      </label>
     </div>
   );
 }

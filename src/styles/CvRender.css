@@ -1,0 +1,43 @@
+.cvContainer {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 18px;
+  display: flex;
+  min-height: 100%;
+
+  flex-direction: column;
+  align-items: center;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  padding-top: 3rem;
+}
+
+article {
+  width: 100%;
+
+  .spaceBtwBox {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    min-width: 100%;
+  }
+  .userInfo {
+    padding-left: 5px;
+  }
+  h2 {
+    width: 100%;
+  }
+}
+
+.userName {
+  border-bottom: 2px solid blue;
+  padding: 0px 2rem 0rem 2rem;
+  padding-bottom: 0.5rem;
+  font-size: 2.5rem;
+}
+
+.userInfoHeading {
+  width: 100%;
+  border-bottom: 1px solid black;
+  font-size: 2rem;
+  padding-bottom: 1rem;
+}

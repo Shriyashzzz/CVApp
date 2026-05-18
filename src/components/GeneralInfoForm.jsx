@@ -4,7 +4,7 @@ export default function GeneralInfoForm({ data, onChange }) {
   return (
     <section className="generalInfoBox">
       <InputBox
-        labelName="name: "
+        labelName="Name: "
         id="inputName"
         containerName="nameContainer"
         data={data}
@@ -14,7 +14,7 @@ export default function GeneralInfoForm({ data, onChange }) {
       />
 
       <InputBox
-        labelName="email: "
+        labelName="Email: "
         id="inputEmail"
         containerName="emailContainer"
         data={data}
@@ -23,7 +23,7 @@ export default function GeneralInfoForm({ data, onChange }) {
         name="email"
       />
       <InputBox
-        labelName="phone: "
+        labelName="Phone: "
         id="inputPhone"
         containerName="phoneContainer"
         data={data}

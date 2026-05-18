@@ -3,8 +3,7 @@ import GeneralInfoForm from "./components/GeneralInfoForm";
 import Button from "./components/shared/Button";
 import ExperienceInfoForm from "./components/ExperienceInfoForm";
 import EducationInfoForm from "./components/EducationInfoForm";
-
-import CV from "./components/Cv";
+import CvRender from "./components/CvRender";
 import "./styles/App.css";
 
 export default function App() {
@@ -14,24 +13,37 @@ export default function App() {
     phone: "123456789",
   });
 
-  const [educationArray, setEducationArray] = useState([]);
+  const [educationArray, setEducationArray] = useState([
+    {
+      school: "loremSchool",
+      major: "Computer Science",
+      from: new Date().toISOString().split("T")[0],
+      to: new Date().toISOString().split("T")[0],
+      key: crypto.randomUUID(),
+    },
+  ]);
 
   const [experienceArray, setExperienceArray] = useState([]);
 
   return (
     <>
       <aside>
-        <p>Contact</p>
-        <GeneralInfoForm data={generalInfo} onChange={setGeneralInfo} />
-        <p> Education</p>
-        <section className="educationInfoBox">
+        <section className="addBox">
+          <h2>Contact</h2>
+
+          <GeneralInfoForm data={generalInfo} onChange={setGeneralInfo} />
+        </section>
+
+        <section className="addBox">
+          <h2> Education</h2>
           <EducationInfoForm
             educationArray={educationArray}
             setEducationArray={setEducationArray}
           />
         </section>
-        <p>Work Experience</p>
-        <section>
+
+        <section className="addBox">
+          <h2>Work Experience</h2>
           <ExperienceInfoForm
             experienceArray={experienceArray}
             setExperienceArray={setExperienceArray}
@@ -39,7 +51,11 @@ export default function App() {
         </section>
       </aside>
       <main>
-        <CV />
+        <CvRender
+          generalInfo={generalInfo}
+          educationArray={educationArray}
+          experienceArray={experienceArray}
+        />
       </main>
     </>
   );
