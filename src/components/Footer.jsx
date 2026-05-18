@@ -2,13 +2,13 @@ import githubIcon from "../assets/github.svg";
 
 export default function Footer() {
   return (
-    <footer class="footer">
+    <footer className="footer">
       <a
-        class="footer-link"
+        className="footer-link"
         href="https://github.com/Shriyashzzz/battleship"
         target="_blank"
       >
-        <img src={githubIcon} alt="github icon" class="icons github" />
+        <img src={githubIcon} alt="github icon" className="icons github" />
         <p>Shriyashzzz</p>
       </a>
     </footer>

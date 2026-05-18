@@ -1,11 +1,26 @@
 import { Fragment } from "react";
 import "../styles/CvRender.css";
+import Button from "./shared/Button";
 
 export default function CvRender({
   generalInfo,
   educationArray,
   experienceArray,
+  setGeneralInfo,
+  setEducationArray,
+  setExperienceArray,
+  setEducationInfo,
 }) {
+  const moveItemtoForm = (schoolVal, majorVal, fromVal, toVal) => {
+    setEducationInfo({
+      school: schoolVal,
+      major: majorVal,
+      from: fromVal,
+      to: toVal,
+      key: crypto.randomUUID(),
+    });
+  };
+
   return (
     <section className="cvContainer">
       <h1 className="userName">{generalInfo.name}</h1>
@@ -18,16 +33,32 @@ export default function CvRender({
       <h2 className="userInfoHeading"> EDUCATION</h2>
       <article>
         <div className="spaceBtwBox">
-          <h3 className="userTitles">University</h3>
+          <h3 className="userTitles">Univeristy</h3>
           <h3 className="userTitles">Graduation</h3>
         </div>
 
-        {educationArray.map((element) => {
+        {educationArray.map((element, index) => {
           return (
             <div className="spaceBtwBox " key={element.key + "cv"}>
               <p className="userInfo">
-                <i>{element.major}</i>
+                <i>
+                  {element.school} | {element.major}
+                </i>
               </p>
+              <Button
+                type="button"
+                className={"delete-button"}
+                text="edit"
+                onCLick={() => {
+                  moveItemtoForm(
+                    element.school,
+                    element.major,
+                    element.from,
+                    element.to,
+                  );
+                  educationArray.splice(index, 1);
+                }}
+              />
               <p>
                 <i>{`${element.to}`}</i>
               </p>

@@ -30,12 +30,6 @@ aside {
   width: 100%;
 }
 
-.responsibilityBox {
-  display: flex;
-  gap: 0.5rem;
-  max-width: 100%;
-}
-
 /* Typography */
 h2 {
   border-bottom: 2px solid black;
@@ -145,6 +139,7 @@ input:valid ~ label {
 .responsibilityBox {
   display: flex;
   width: 100%;
+  gap: 0.5rem;
   justify-content: space-between;
 }
 

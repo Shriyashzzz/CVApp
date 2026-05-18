@@ -12,17 +12,19 @@ export default function App() {
     phone: "123456789",
   });
 
-  const [educationArray, setEducationArray] = useState([
-    {
-      school: "loremSchool",
-      major: "Computer Science",
-      from: new Date().toISOString().split("T")[0],
-      to: new Date().toISOString().split("T")[0],
-      key: crypto.randomUUID(),
-    },
-  ]);
+  const [educationArray, setEducationArray] = useState([]);
 
   const [experienceArray, setExperienceArray] = useState([]);
+  const [eduInfo, setEducationInfo] = useState({
+    school: "",
+    major: "",
+    from: new Date().toISOString().split("T")[0],
+    to: new Date().toISOString().split("T")[0],
+    key: crypto.randomUUID(),
+  });
+  const editEducationItem = (field, newValue) => {
+    setEducationInfo((prev) => ({ ...prev, [field]: newValue }));
+  };
 
   return (
     <>
@@ -38,6 +40,9 @@ export default function App() {
           <EducationInfoForm
             educationArray={educationArray}
             setEducationArray={setEducationArray}
+            eduInfo={eduInfo}
+            handleChange={editEducationItem}
+            setEducationInfo={setEducationInfo}
           />
         </section>
 
@@ -52,8 +57,13 @@ export default function App() {
       <main>
         <CvRender
           generalInfo={generalInfo}
+          setGeneralInfo={setGeneralInfo}
           educationArray={educationArray}
+          setEducationArray={setEducationArray}
           experienceArray={experienceArray}
+          setExperienceArray={setExperienceArray}
+          editEducationItem={editEducationItem}
+          setEducationInfo={setEducationInfo}
         />
       </main>
     </>

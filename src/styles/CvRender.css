@@ -49,3 +49,13 @@ article {
   align-items: center;
   justify-content: space-between;
 }
+
+ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.2;
+}
+
+ul {
+}
