@@ -2,7 +2,9 @@ import { useState } from "react";
 import "../styles/CvRender.css";
 import Button from "./shared/Button";
 import Switch from "./shared/Switch";
-
+import { useRef } from "react";
+import { useReactToPrint } from "react-to-print";
+import DownloadBtn from "./shared/downloadBtn";
 export default function CvRender({
   generalInfo,
   setGeneralInfo,
@@ -14,6 +16,13 @@ export default function CvRender({
   setExperienceInfo,
   setEducationInfo,
 }) {
+  const cvRef = useRef(null);
+  const downloadCV = useReactToPrint({
+    contentRef: cvRef,
+    documentTitle: "CV",
+    onAfterPrint: () => console.log("PDF downloaded"),
+  });
+
   const [editMode, setEditMode] = useState(false);
 
   const moveEduItemtoForm = (schoolVal, majorVal, fromVal, toVal) => {
@@ -41,15 +50,19 @@ export default function CvRender({
 
   return (
     <>
-      <Switch
-        isChecked={editMode}
-        handleToggle={() => {
-          setEditMode(!editMode);
-        }}
-        label={"Edit Mode: "}
-      />
+      <div class="topButtonsContainer">
+        {" "}
+        <Switch
+          isChecked={editMode}
+          handleToggle={() => {
+            setEditMode(!editMode);
+          }}
+          label={"Edit Mode: "}
+        />
+        <DownloadBtn text={"Download "} onClick={downloadCV} />
+      </div>
 
-      <section className="cvContainer">
+      <section ref={cvRef} className="cvContainer">
         <h1 className="userName">{generalInfo.name}</h1>
         <div className="contactBox">
           <p>

@@ -64,4 +64,8 @@ ul {
   margin: 2rem;
 }
 
-
+.topButtonsContainer {
+  display: flex;
+  align-items: flex-end;
+  gap: 1rem;
+}

@@ -10,18 +10,18 @@
   text-align: center;
   align-items: center;
   flex-direction: row;
-  background-color: grey;
+  background-color: rgb(222, 196, 27);
   width: 100%;
   margin: 0;
   margin-top: auto;
-  font-family: monospace;
+  font-family: "Times New Roman", Times, serif;
   font-size: 0.8rem;
 }
 
 .footer .footer-link {
   text-decoration: none;
   align-items: center;
-  color: white;
+  color: rgb(0, 0, 0);
   text-shadow: 1px 1px rgba(0, 0, 0, 0.5);
   display: flex;
   transition: 0.2s all ease-in-out;
@@ -30,8 +30,8 @@
 
 .footer .footer-link .icons.github {
   transition: 0.2s all ease-out;
-  filter: invert(99%) sepia(1%) saturate(2975%) hue-rotate(190deg)
-    brightness(94%) contrast(108%);
+  filter: invert(0%) sepia(0%) saturate(15%) hue-rotate(337deg) brightness(100%)
+    contrast(107%);
   height: 2rem;
   width: 2rem;
 }
