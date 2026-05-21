@@ -49,13 +49,6 @@ article {
   justify-content: space-between;
 }
 
-.workResponsoList {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  padding: 1.2;
-}
-
 .formEdit {
   scale: 0.5;
 }
